@@ -1,11 +1,14 @@
-import type { NextPage } from 'next'
+import { QueryClient, QueryClientProvider } from 'react-query'
+const queryClient = new QueryClient()
+import RandomPokemon from '../components/RandomPokemon'
 
-const Home: NextPage = () => {
+const Home = () => {
   return (
-    <div className='text-2xl text-red-300'>
-      Hello world
-    </div>
-  )
+    <QueryClientProvider client={queryClient}>
+      <RandomPokemon />
+    </QueryClientProvider>
+  );
 }
+
 
 export default Home
